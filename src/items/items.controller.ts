@@ -6,6 +6,8 @@ import {
   Delete,
   Body,
   Param,
+  Req,
+  Res,
 } from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto';
 import { ItemsService } from './items.service';
@@ -19,6 +21,11 @@ export class ItemsController {
   findAll(): Promise<Item[]> {
     return this.itemsService.findAll();
   }
+
+  // findAll(@Req() req: Request, @Res() res: Response): Response {
+  //   console.log(req.url);
+  //   return res.send('Hello World!');
+  // }
 
   @Get(':id')
   findOne(@Param('id') id): Promise<Item> {
